@@ -3,6 +3,14 @@
  */
 public class LeapYear {
 
+    private static Boolean isLeapYear(int y) {
+        if (y%4 == 0 ) {
+            return true; 
+        } else {
+            return false; 
+        }
+    }
+
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
      */
