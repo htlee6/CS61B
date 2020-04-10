@@ -14,9 +14,9 @@ public class LinkedListDeque<T> {
 
     }
 
-    TNode sentinelF;
-    TNode sentinelB;
-    int size;
+    private TNode sentinelF;
+    private TNode sentinelB;
+    private int size;
 
     public LinkedListDeque() {
         sentinelB = new TNode(null, null, null);
@@ -102,8 +102,7 @@ public class LinkedListDeque<T> {
         return res;
     }
 
-
-
+    /*
     public static void main(String[] args) {
         LinkedListDeque<Integer> l1 = new LinkedListDeque<>();
         l1.addFirst(1);
@@ -113,4 +112,5 @@ public class LinkedListDeque<T> {
         Integer res = l1.get(1);
     }
 
+     */
 }

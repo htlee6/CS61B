@@ -63,6 +63,7 @@ public class ArrayDeque<T> {
         nextLast = 1;
     }
 
+    /*
     public ArrayDeque(T x) {
         items = (T[]) new Object[8];
         items[0] = x;
@@ -70,6 +71,8 @@ public class ArrayDeque<T> {
         nextFirst = 7;
         nextLast = 1;
     }
+
+     */
 
     /** Returns the number of items in the list. */
     public int size() {
