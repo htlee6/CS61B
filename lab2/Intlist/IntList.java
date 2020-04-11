@@ -92,6 +92,12 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
+        if (A == null && B == null) {
+            return null;
+        }
+        if (A == null) {
+            return clone(B);
+        }
         IntList result = clone(A);
         IntList ptr = result;
         ptr = findEnd(ptr);
