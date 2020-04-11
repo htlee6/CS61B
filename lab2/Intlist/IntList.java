@@ -81,8 +81,10 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        IntList ptr = A;
+        ptr = findEnd(ptr);
+        ptr.rest = clone(B);
+        return A;
     }
 
     /**
@@ -90,12 +92,32 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        IntList result = clone(A);
+        IntList ptr = result;
+        ptr = findEnd(ptr);
+        ptr.rest = clone(B);
+        return result;
     }
 
+    /* HELPER METHOD */
 
+    /** Clone a IntList same as L. */
+    private static IntList clone(IntList L) {
+        if (L == null) {
+            return null;
+        }
+        return new IntList(L.first, clone(L.rest));
+    }
 
+    /** Find the last node of the IntList L. */
+    private static IntList findEnd(IntList L) {
+        while (L.rest != null) {
+            L = L.rest;
+        }
+        return L;
+    }
+
+    /* HELPER METHOD OVER */
 
 
 
