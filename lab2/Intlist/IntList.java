@@ -81,6 +81,13 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
+        if (A == null && B == null) {
+            return null;
+        }
+        if (A == null) {
+            A = clone(B);
+            return A;
+        }
         IntList ptr = A;
         ptr = findEnd(ptr);
         ptr.rest = clone(B);
@@ -122,7 +129,6 @@ public class IntList {
         }
         return L;
     }
-
     /* HELPER METHOD OVER */
 
 
