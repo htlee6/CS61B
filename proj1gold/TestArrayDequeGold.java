@@ -1,6 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 import edu.princeton.cs.algs4.StdRandom;
+import jh61b.junit.TestRunner;
 
 public class TestArrayDequeGold {
     /*
