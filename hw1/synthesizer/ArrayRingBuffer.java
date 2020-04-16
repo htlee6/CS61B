@@ -28,9 +28,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     @Override
     public void enqueue(T x) throws RuntimeException {
         if (isFull()) {
-            throw new RuntimeException("Ring Buffer Overflow. ");
+            throw new RuntimeException("Ring Buffer Overflow");
         }
-        rb[last] = x; rb[last] = x;
+        rb[last] = x;
         last = plusOne(last);
         fillCount += 1;
     }
@@ -56,14 +56,12 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      * Return oldest item, but don't remove it.
      */
     @Override
-    public T peek() {
+    public T peek() throws RuntimeException {
         if (isEmpty()) {
             throw new RuntimeException("Ring Buffer Underflow");
         }
         return rb[first];
     }
-
-
 
     /* HELPER METHOD */
 
@@ -87,21 +85,24 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     }
 
     private class BufferIterator implements Iterator<T> {
-        private int wizardPosition;
+        private int current;
+        private int remain;
 
         BufferIterator() {
-            wizardPosition = 0;
+            remain = fillCount();
+            current = first;
         }
 
         @Override
         public boolean hasNext() {
-            return last == wizardPosition;
+            return remain > 0;
         }
 
         @Override
         public T next() {
-            T returnValue = rb[wizardPosition];
-            wizardPosition += 1;
+            T returnValue = rb[current];
+            remain -= 1;
+            current = plusOne(current);
             return returnValue;
         }
     }

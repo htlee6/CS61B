@@ -23,12 +23,10 @@ public class GuitarString {
         }
     }
 
-
     /* Pluck the guitar string by replacing the buffer with white noise. */
     public void pluck() {
-        for (double i : buffer) {
+        while(!buffer.isFull()){
             double r = Math.random() - 0.5;
-            buffer.dequeue();
             buffer.enqueue(r);
         }
     }
@@ -45,6 +43,10 @@ public class GuitarString {
 
     /* Return the double at the front of the buffer. */
     public double sample() {
+        try {
+            buffer.peek();
+        } catch (Exception e) {
+        }
         return buffer.peek();
     }
 }
