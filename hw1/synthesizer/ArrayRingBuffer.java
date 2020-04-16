@@ -35,10 +35,13 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         fillCount += 1;
     }
 
+    /*
     @Override
     void moveTo(double deltaX, double deltaY) {
 
     }
+
+     */
 
     /**
      * Dequeue oldest item in the ring buffer. If the buffer is empty, then
