@@ -46,7 +46,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
             throw new RuntimeException("Ring Buffer Underflow");
         }
         T returnVal = rb[first];
-        rb[first] = null;
+        // rb[first] = null;
         first = plusOne(first);
         fillCount -= 1;
         return returnVal;
