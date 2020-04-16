@@ -82,16 +82,6 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     }
 
     @Override
-    public boolean isEmpty() {
-        return super.isEmpty();
-    }
-
-    @Override
-    public boolean isFull() {
-        return super.isFull();
-    }
-
-    @Override
     public Iterator<T> iterator() {
         return new BufferIterator();
     }
