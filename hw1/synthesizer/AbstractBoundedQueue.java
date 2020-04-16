@@ -33,5 +33,4 @@ public abstract class AbstractBoundedQueue<T> implements BoundedQueue<T> {
     @Override
     public abstract void enqueue(T x);
 
-    // abstract void moveTo(double deltaX, double deltaY);
 }
