@@ -65,12 +65,12 @@ public class Percolation {
         }
         // If you're opening a top-row site, then connect it with the virtual top
         if (row == 0) {
-            uf.union(N*N, thisPoint);
+            uf.union(N * N, thisPoint);
             ufOrigin.union(N * N, thisPoint);
         }
         // Likewise, when opening a bottom-row site, connect it with the virtual bottom
         if (row == N - 1) {
-            uf.union(N*N+1, thisPoint);
+            uf.union(N * N + 1, thisPoint);
         }
         percolates = uf.connected(N * N, N * N + 1);
     }
@@ -82,7 +82,7 @@ public class Percolation {
     public boolean isFull(int row, int col) {
         // is connected with the virtual top?
         int thisPoint = xyTo1D(row, col, N);
-        return ufOrigin.connected(thisPoint, N*N);
+        return ufOrigin.connected(thisPoint, N * N);
     }
 
     public int numberOfOpenSites() {
