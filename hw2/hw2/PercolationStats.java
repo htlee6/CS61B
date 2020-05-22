@@ -34,7 +34,7 @@ public class PercolationStats {
         return mean() - 1.96 * stddev() / Math.sqrt(T);
     }
     public double confidenceHigh() {
-        return mean() - 1.96 * stddev() / Math.sqrt(T);
+        return mean() + 1.96 * stddev() / Math.sqrt(T);
     }
 
     private void startSimulation(PercolationFactory pf) {
@@ -51,12 +51,6 @@ public class PercolationStats {
             }
             openSitesFrac[i] = ((double) openSites) / (double) (N * N);
         }
-    }
-
-    public static void main(String[] args) {
-        PercolationFactory pf = new PercolationFactory();
-        PercolationStats ps = new PercolationStats(500, 100000, pf);
-        System.out.println(ps.mean());
     }
 
 }
