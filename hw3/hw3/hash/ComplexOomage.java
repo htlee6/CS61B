@@ -14,7 +14,7 @@ public class ComplexOomage implements Oomage {
         // System.out.println("Using ComplexOomage.hashCode() ");
         int total = 0;
         for (int x : params) {
-            total = total * 256;
+            total = total * 257;
             total = total + x;
         }
         return total;

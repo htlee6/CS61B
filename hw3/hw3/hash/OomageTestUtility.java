@@ -1,12 +1,11 @@
 package hw3.hash;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class OomageTestUtility {
     public static boolean haveNiceHashCodeSpread(List<Oomage> oomages, int M) {
-        /* TODO:
+        /* DONE:
          * Write a utility function that returns true if the given oomages
          * have hashCodes that would distribute them fairly evenly across
          * M buckets. To do this, convert each oomage's hashcode in the
