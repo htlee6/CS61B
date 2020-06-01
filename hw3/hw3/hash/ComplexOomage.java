@@ -11,6 +11,7 @@ public class ComplexOomage implements Oomage {
 
     @Override
     public int hashCode() {
+        // System.out.println("Using ComplexOomage.hashCode() ");
         int total = 0;
         for (int x : params) {
             total = total * 256;
