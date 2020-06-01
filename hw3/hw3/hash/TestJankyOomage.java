@@ -42,4 +42,5 @@ public class TestJankyOomage {
 
         assertTrue(OomageTestUtility.haveNiceHashCodeSpread(oomages, 10));
     }
+
 }
