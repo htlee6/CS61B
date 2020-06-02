@@ -220,11 +220,10 @@ public class BSTMap<Key extends Comparable<Key>, Value> implements Map61B<Key, V
     }
 
     private class BSTMapIterator implements Iterator<Key> {
-        private ArrayList<Key> keysInOrder;
+        private ArrayList<Key> keysInOrder = new ArrayList<>();
         private int cursor;
 
         public BSTMapIterator() {
-            keysInOrder = new ArrayList<>();
             cursor = 0;
             inOrder();
         }
@@ -244,7 +243,7 @@ public class BSTMap<Key extends Comparable<Key>, Value> implements Map61B<Key, V
 
         @Override
         public boolean hasNext() {
-            return cursor < keysInOrder.size();
+            return cursor < keysInOrder.size() - 1;
         }
 
         @Override
@@ -255,12 +254,12 @@ public class BSTMap<Key extends Comparable<Key>, Value> implements Map61B<Key, V
     }
 
     public static void main(String[] args) {
-        BSTMap<String, Integer> b = new BSTMap<String, Integer>();
+        BSTMap<String, Integer> bm = new BSTMap<String, Integer>();
         for (int i = 0; i < 455; i++) {
-            b.put("hi" + i, 1 + i);
+            bm.put("hi" + i, 1 + i);
         }
         int count = 0;
-        for (String k : b.keySet()) {
+        for (String k : bm) {
             count += 1;
             System.out.println(k);
         }
