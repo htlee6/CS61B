@@ -115,7 +115,13 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
      * UnsupportedOperationException. */
     @Override
     public V remove(K key) {
-        throw new UnsupportedOperationException();
+        if (!containsKey(key)) {
+            return null;
+        }
+        V deletedValue = null;
+        deletedValue = buckets[hash(key)].remove(key);
+        size -= 1;
+        return deletedValue;
     }
 
     /* Removes the entry for the specified key only if it is currently mapped to
@@ -123,7 +129,11 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
      * throw an UnsupportedOperationException.*/
     @Override
     public V remove(K key, V value) {
-        throw new UnsupportedOperationException();
+        if (buckets[hash(key)].get(key) == value) {
+            size -= 1;
+            return remove(key);
+        }
+        return null;
     }
 
     @Override
