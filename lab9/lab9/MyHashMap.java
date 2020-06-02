@@ -1,5 +1,6 @@
 package lab9;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -138,6 +139,37 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
 
     @Override
     public Iterator<K> iterator() {
-        throw new UnsupportedOperationException();
+        return new HashMapIterator();
+    }
+
+    private class HashMapIterator implements Iterator<K> {
+        private int cursor;
+        private ArrayList<K> keys = new ArrayList<>();
+
+        public HashMapIterator() {
+            keys.addAll(keySet());
+            cursor = 0;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return cursor < keys.size() - 1;
+        }
+
+        @Override
+        public K next() {
+            cursor += 1;
+            return keys.get(cursor);
+        }
+    }
+
+    public static void main(String[] args) {
+        MyHashMap<Integer, String> mhm = new MyHashMap<>();
+        for (int i = 0; i < 50; i += 1) {
+            mhm.put(i, "Hi " + String.valueOf(i));
+        }
+        for (Integer i : mhm) {
+            System.out.println("Key: " + String.valueOf(i) + " Value: " + mhm.get(i));
+        }
     }
 }
