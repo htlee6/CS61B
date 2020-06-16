@@ -127,7 +127,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
             if (j < size() && items[j].compareTo(items[j + 1]) > 0) {
                 j += 1;
             }
-            if (items[index].compareTo(items[j + 1]) <= 0) {
+            if (items[index].compareTo(items[j]) <= 0) {
                 break;
             }
             swap(index, j);
@@ -179,8 +179,8 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         Node deletedNode = items[1];
         items[1] = items[size];
         items[size] = null;
-        sink(1);
         size -= 1;
+        sink(1);
         return deletedNode.item();
     }
 
