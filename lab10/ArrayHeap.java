@@ -180,7 +180,9 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         items[1] = items[size];
         items[size] = null;
         size -= 1;
-        sink(1);
+        if (size > 0) {
+            sink(1);
+        }
         return deletedNode.item();
     }
 
